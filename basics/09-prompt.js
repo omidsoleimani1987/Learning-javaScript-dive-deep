@@ -1,4 +1,4 @@
-//try it with the index-prompt file in the same directory
+//try it with the index-prompt.html file in the same directory
 
 const variable = prompt('it is a prompt', 'something here by default');
 // it returns a string if we press 'ok' or add something inside the field even a number
