@@ -1,4 +1,11 @@
-// try {...} catch (error) {...}
+/*
+try {...} catch (error) {...}
+throw expression;
+    throw 'Error2';   // String type
+    throw 42;         // Number type
+    throw true;       // Boolean type
+    throw {toString: function() { return "I'm an object!"; } }; // object type
+*/
 
 // throwing an error without try
 const variableOne = true;

@@ -7,7 +7,7 @@
 
     -- numbers:
         0 -> false
-        any other number, negative, float
+        any other number, negative, float -> true
     
     -- strings:
         '' (empty) -> false
