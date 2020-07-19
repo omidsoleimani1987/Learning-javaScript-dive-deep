@@ -12,4 +12,3 @@ watch these episodes in section 5 of the course
 120. memory management
 
 */
-console.log('hello');
