@@ -1,5 +1,7 @@
 // The bind() function creates a new bound function, which is an exotic function object (a term from ECMAScript 2015) that wraps the original function object. Calling the bound function generally results in the execution of its wrapped function
 
+// bind doesn't execute the function [like apply() and call()] but it prepares the function
+
 //example 1:
 const userOne = {
   firstName: 'max',
