@@ -10,3 +10,20 @@ function example() {
 function exit() {
   return;
 }
+
+/*
+  totally return can return a thing and then leave the function or just by giving the return it comes out of the function
+
+  we can have it with the if statement inside the function:
+*/
+
+function getResult() {
+  if (a > b) {
+    return a;
+  }
+}
+
+// it will be treated as this (if true):
+function getResult() {
+  return a;
+}
