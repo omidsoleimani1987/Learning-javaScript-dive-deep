@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> </title>
+  </head>
+  <body>
+    <header>
+      <h1>title is here</h1>
+      <h2>small title</h2>
+    </header>
+  </body>
+</html>
+<!-- 
+
+?) textContent
+
+    The textContent property sets or returns the text content of the specified node, and all its descendants. remember that this property returns the text of all child nodes as well.
+
+    const header = document.querySelector('header');
+    header.textContent;
+    ! output: "↵      title is here↵      small title↵    "
+
+    If you set the textContent property, any child nodes are removed and replaced by a single Text node containing the specified string.
+
+    * Note: This property is similar to the 'innerText' property, however there are some differences:
+        - textContent returns the text content of all elements, while innerText returns the content of all elements, except for <script> and <style> elements.
+        - innerText will not return the text of elements that are hidden with CSS (textContent will).
+
+?) innerText
+
+    The innerText property sets or returns the text content of the specified node, and all its descendants.
+
+    If you set the innerText property, any child nodes are removed and replaced by a single Text node containing the specified string.
+
+    header.textContent;
+    ! output: "title is here↵small title"
+
+-->

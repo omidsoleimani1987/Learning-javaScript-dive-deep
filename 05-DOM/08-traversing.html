@@ -1,0 +1,115 @@
+<!--
+
+it means once we selected an element or one node, we can select the elements around this queried element instead of selecting all elements separately
+    
+* selecting elements in this method is faster for browser than always choose everything with the querySelector
+    
+some terms:
+    *) Child : direct child node or element
+    *) Descendant : direct or indirect child node or element
+    *) Parent : direct parent node or element
+    *) Ancestor : direct or indirect parent node or element
+
+    ?) parentNode, parentElement, closest()
+    
+    ?) childNodes, children, querySelector()
+    ?) firstChild, firstElementChild
+    ?) lastChild, lastElementChild
+    
+    ?) previousSibling, previousElementSibling
+    ?) nextSibling, nextElementSibling
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> </title>
+  </head>
+  <body>
+    <header>...</header>
+    <ul>
+      <li class="list-item">one</li>
+      <li class="list-item">two</li>
+      <li class="list-item">three</li>
+    </ul>
+    <footer>...</footer>
+  </body>
+</html>
+
+<!--
+
+?) Child:
+
+(try these in console)
+
+const ul = document.querySelector('ul');
+
+ul.childNodes
+    NodeList(7) [text, li.list-item, text, li.list-item, text, li.list-item, text]
+
+ul.children
+    HTMLCollection(3) [li.list-item, li.list-item, li.list-item]
+
+ul.children[1]
+    <li class="list-item">two</li>
+
+ul.lastElementChild
+    <li class="list-item">three</li>
+
+ -->
+
+<!--
+
+?) Parent:
+
+(try these in console)
+
+const li = document.querySelector('li');
+    first match: <li class="list-item">one</li>
+
+li.parentElement
+    <ul>...</ul>
+
+li.parentNode
+    <ul>...</ul>
+
+* in all cases the 'parentElement' and the 'parentNode' returns the parent ELEMENT not the parent node because texts can not have children only elements can have children
+
+only in this case these two are different which is not important:
+    document.documentElement ==> <html>
+    document.documentElement.parentElement ==> null
+    document.documentElement.parentNode ==> document
+
+
+Ancestor:
+    - li.closest('ul');
+        <ul>...</ul>
+
+    - li.closest('body');
+       <body>...</body>
+
+    - li.closest('html');
+       <html>...</html>
+
+-->
+
+<!--
+
+?) Sibling:
+
+(try these in console)
+
+const ul = document.querySelector('ul');
+* also like this: const ul = document.body.firstElementChild.nextElementSibling;
+
+ul.previousSibling
+    text
+
+ul.previousElementSibling
+    header
+
+ul.nextSibling
+    text
+
+ul.nextElementSibling
+    footer
+-->

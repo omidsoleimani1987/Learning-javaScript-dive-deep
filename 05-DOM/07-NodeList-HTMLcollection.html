@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <ul>
+      <li class="one">item one</li>
+      <li class="two">item two</li>
+      <li class="three">item three</li>
+    </ul>
+  </body>
+</html>
+<!--
+
+const listElements1 = document.querySelectorAll('li');
+
+console.dir(listElements1);
+
+NodeList(3) => [li.one, li.two, li.three]
+* changing the text content of the list items or adding changes to them will be reflected, but adding or removing the list items does not reflected here because it is a snapshot
+
+show: listElements[0].textContent ==> 'item one'
+set:  listElements[0].textContent = 'omid';
+show: listElements[0].textContent ==> 'omid'
+
+
+const listElements2 = document.getElementsByTagName('li');
+
+console.dir(listElements1);
+
+HTMLCollection(3) [li.one, li.two, li.three]
+* changing the text content of the list items or adding changes to them will be reflected, AND adding or removing the list items will be reflected here
+-->

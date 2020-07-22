@@ -10,7 +10,7 @@ getElementById(); -> by ID
 - return a live-node, add and remove them will be reflected in the returned reference
 
 querySelectorAll();
-getElementByTagName();
+getElementsByTagName();
 getElementsByClassName();
 
 - return collection of elements (array-like objects): NodeList

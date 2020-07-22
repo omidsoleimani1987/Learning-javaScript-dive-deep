@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> </title>
+  </head>
+  <body>
+    <header>
+      <h1>Hello world</h1>
+    </header>
+    <ul>
+      <li class="one">item one</li>
+      <li class="two">item two</li>
+      <li class="three">item three</li>
+    </ul>
+  </body>
+</html>
+<!-- 
+
+*) first way: HTML string
+    
+    - innerHTML
+        The innerHTML property sets or returns the HTML content (inner HTML) of an element.
+        render and replace all the old html content with the new HTML string
+        it is good when we want completely change the content, but it is not good to add content
+        
+        A "DOMString" containing the HTML serialization of the element's descendants. Setting the value of innerHTML removes all of the element's descendants and replaces them with nodes constructed by parsing the HTML given in the string htmlString.
+
+        const header = document.querySelector('header');
+        header.innerHTML; ==> output: "↵      <h1>Hello world</h1>↵      "
+        header.innerHTML = '<h2>new content</h2>';
+        header.innerHTML; ==> output: "<h2>new content</h2>"
+        or we can to keep the old one but this makes the browser to render the all header content again:
+        header.innerHTML = header.innerHTML + "<h2>new content</h2>";
+
+
+    - insertAdjacentHTML()
+        add(render) HTML string in the specific position 
+        
+        element.insertAdjacentHTML('position', 'text')
+        
+        position: A DOMString representing the position relative to the element. must be one of the following strings:
+          'beforebegin': Before the element itself.
+          'afterbegin': Just inside the element, before its first child.
+          'beforeend': Just inside the element, after its last child.
+          'afterend': After the element itself.
+
+-->

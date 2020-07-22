@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> </title>
+  </head>
+  <body>
+    <header>
+      <h1>Hello world</h1>
+    </header>
+    <ul>
+      <li class="one">item one</li>
+      <li class="two">item two</li>
+      <li class="three">item three</li>
+    </ul>
+  </body>
+</html>
+<!-- 
+
+?) second way: createElement()
+
+*1) document.createElement()
+    In an HTML document, the document.createElement() method creates the HTML element specified by tagName (only works on document not other elements)
+
+    const ul = document.querySelector('ul');
+    const li = document.createElement('li');
+    li.textContent = 'new item';
+
+*2) appendChild()
+  The Node.appendChild() method adds a node to the end of the list of children of a specified parent node. If the given child is a reference to an existing node in the document, appendChild() moves it from its current position to the new position. This means that a node can't be in two points of the document simultaneously. So if the node already has a parent, the node is first removed, then appended at the new position
+  todo) good browser support
+
+    ul.appendChild(li); => adds as the last child element for th ul element
+
+
+*3) append()
+  The ParentNode.append() method inserts a set of Node objects or DOMString objects after the last child of the ParentNode. DOMString objects are inserted as equivalent Text nodes.
+  ! internet explorer doesn't support
+
+  Differences from Node.appendChild():
+    - ParentNode.append() allows you to also append DOMString objects, whereas Node.appendChild() only accepts Node objects.
+    
+    - ParentNode.append() has no return value, whereas Node.appendChild() returns the appended Node object.
+    
+    - ParentNode.append() can append several nodes and strings, whereas Node.appendChild() can only append one node.
+
+    const p = document.createElement('p');
+    ul.append(p, li, 'some text, not html tags like <h1>');
+
+
+*4) prepend()
+    The ParentNode.prepend() method inserts a set of Node objects or DOMString objects before the first child of the ParentNode. DOMString objects are inserted as equivalent Text nodes.
+    ! internet explorer doesn't support
+
+
+*5) insertBefore()
+    The Node.insertBefore() method inserts a node before a reference node as a child of a specified parent node.
+    todo) good browser support
+
+    parentNode.insertBefore(newNode, referenceNode)
+      parentNode
+          The parent of the newly inserted node.
+      newNode
+          The node to be inserted.
+      referenceNode
+          The node before which newNode is inserted. If this is null, then newNode is inserted at the end of parentNode's child nodes.
+
+      const ul = document.querySelector('ul');
+      const p = document.createElement('p');
+      p.textContent = 'my paragraph';
+      ul.insertBefore(p, ul.lastElementChild);
+
+
+*6) before()
+    The ChildNode.before() method inserts a set of Node or DOMString objects in the children list of this ChildNode's parent, just before this ChildNode.
+    ! internet explorer doesn't support
+    
+    const ul = document.querySelector('ul');
+    const p = document.createElement('p');
+    p.textContent = 'my paragraph';
+    ul.lastElementChild.before(p);
+
+
+*7) after()
+    The ChildNode.after() method inserts a set of Node or DOMString objects in the children list of this ChildNode's parent, just after this ChildNode. 
+    ! internet explorer doesn't support
+    
+    ul.lastElementChild.after(p);
+    good alterative:
+    
+
+*8) insertAdjacentElement()
+    The insertAdjacentElement() method inserts a the specified element into a specified position.
+    todo) good browser support
+
+    Legal position values are:
+      "afterbegin"
+      "afterend"
+      "beforebegin"
+      "beforeend"
+
+    node.insertAdjacentElement(position, element)
+
+
+*9) replaceChild()
+    The Node.replaceChild() method replaces a child node within the given (parent) node.
+    todo) good browser support
+
+    parentNode.replaceChild(newChild, oldChild);
+      newChild
+        The new node to replace oldChild. If it already exists in the DOM, it is first removed.
+      oldChild
+        The child to be replaced.
+
+
+*10) replaceWith()
+    The ChildNode.replaceWith() method replaces this ChildNode in the children list of its parent with a set of Node or DOMString objects.
+    ! internet explorer doesn't support
+
+
+
+todo) good browser support
+appendChild()
+insertBefore()
+insertAdjacentElement()
+replaceChild()
+
+! internet explorer doesn't support
+append()
+prepend()
+before()
+after()
+replaceWith()
+
+-->

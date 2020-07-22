@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="myId" class="myClass" value="default text" />
+  </body>
+</html>
+
+<!-- 
+const input = document.querySelector('input');
+
+-- js : input.id
+-- html : attribute = id
+* 1:1 mapping:
+  same name for html code is used for dom-object property
+* live-sync:
+  by changing the property in dom-object, it will change the attribute in html code - until reload of course
+
+
+
+-- js : input.className
+-- html : attribute = class
+* 1:1 mapping
+* 1-way live-sync
+
+
+-- js : input.value
+-- html : attribute = value
+* 1:1 mapping
+* 1-way live-sync:
+  - we can read it :
+      input.value
+
+  - we can change it in input field NOT the attribute :
+      input.value = 'new text';
+
+  - we can change it in html attribute :
+      input.setAttribute('value', 'omid soleimani');
+      ! after this the html attribute is 'omid soleimani', and the value in the input field is still 'new text' even after setting the new attribute value
+
+-->
