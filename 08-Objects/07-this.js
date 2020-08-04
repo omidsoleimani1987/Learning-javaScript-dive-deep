@@ -52,8 +52,11 @@ Generally, this refers to the "thing" which called a function (if used inside of
 for example we have this buttons in our html code
 
 <button id="btn1">first</button>
+
 <button id="btn2">second</button>
+
 <button id="btn3">third</button>
+
 <button id="btn4">four</button>
 
 */
@@ -242,5 +245,52 @@ anotherPerson.sayHi();
 
 If in doubt, a console.log(this); can always help you find out what this is referring to at the moment!
 
-?) more on this keyword --> section 9 / episode 231 - 234
+
+
+todo) back to arrow function
+
+we have a button in html body:
+  <button id="btn">click</button>
 */
+
+const btn = document.getElementById('btn');
+
+class MyClass {
+  item = [1, 2, 3];
+  myMethod() {
+    console.log(this.item);
+    console.log(this);
+  }
+  myProperty = () => {
+    console.log(this.item);
+    console.log(this);
+  };
+}
+
+const myObject = new MyClass();
+
+//*) not working way:
+
+btn.addEventListener('click', myObject.myMethod);
+console.log(this.item); // --> undefined
+console.log(this); // --> <button id="btn">click</button>
+
+//*) first solution:
+
+btn.addEventListener('click', myObject.myMethod.bind(myObject));
+console.log(this.item); // --> (3) [1, 2, 3]
+console.log(this); // --> MyClass {item: Array(3)}
+
+//*) second solution:
+// arrow function with parentheses, it should be with parentheses because when the anonymous function calls it, it should be prepare to execution
+
+btn.addEventListener('click', () => myObject.myMethod());
+console.log(this.item); // --> (3) [1, 2, 3]
+console.log(this); // --> MyClass {item: Array(3)}
+
+//*) third solution:
+//change the method inside the object to a filed(property) and use arrow function to define it
+
+btn.addEventListener('click', myObject.myProperty);
+console.log(this.item); // --> (3) [1, 2, 3]
+console.log(this); // --> MyClass {item: Array(3)}
