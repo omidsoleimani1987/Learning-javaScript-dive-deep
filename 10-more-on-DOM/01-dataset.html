@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>dataset</title>
+  </head>
+  <body>
+    <div
+      id="myDiv"
+      data-my-info="hello there"
+      data-another-information="what's up"
+    ></div>
+    <script>
+      // the data- attribute:
+      // we can set any value to this attribute to give more information about the element
+      // one use case is for the tooltips
+      const div = document.getElementById('myDiv');
+      console.log(div.dataset);
+      // output: DOMStringMap {myInfo: "hello there", anotherInformation: "what's up"}
+
+      // naming will be translate from dash to camel case: my_info -> myInfo
+
+      // set dataset from inside of the script:
+      div.dataset.omidSoleimani = "I'm there too"; // data-omid-soleimani="I'm there too"
+      console.log(div);
+      // <div id="myDiv" data-my-info="hello there" data-another-information="what's up" data-omid-soleimani="I'm there too"></div>
+    </script>
+  </body>
+</html>

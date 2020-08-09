@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <style>
+      body {
+        margin: 50px;
+      }
+
+      #myDiv {
+        background-color: aqua;
+        width: 500px;
+        height: 500px;
+        padding: 20px;
+      }
+      #one,
+      #two {
+        background-color: blueviolet;
+        color: cornsilk;
+        width: 400px;
+        height: 200px;
+        margin: 10px auto;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="myDiv">
+      <div id="one">one</div>
+      <div id="two">two</div>
+    </div>
+    <script>
+      // positioning the div-two
+      const divTwo = document.getElementById('two');
+      console.log(divTwo.getBoundingClientRect());
+
+      const hostElementTop = divTwo.offsetTop;
+      const hostElementLeft = divTwo.offsetLeft;
+      const hostElementHight = divTwo.clientHeight;
+
+      const x = hostElementLeft + 100; // values are pixels like 30
+      const y = hostElementTop + hostElementHight - 15;
+
+      // position:
+      divTwo.style.position = 'absolute';
+      divTwo.style.left = x + 'px'; // we have to add position in pixel
+      divTwo.style.top = y + 'px';
+    </script>
+  </body>
+</html>

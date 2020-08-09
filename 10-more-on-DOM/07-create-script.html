@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <button>click to add and execute new script</button>
+    <script>
+      // we can add script tag to html dynamically from inside of javaScript
+      const someScript = document.createElement('script');
+      someScript.textContent = 'alert("hello there");';
+      document.head.append(someScript);
+
+      // or:
+      const btn = document.querySelector('button');
+      btn.addEventListener('click', myFunction);
+
+      const myFunction = () => {
+        const newScript = document.createElement('script');
+        newScript.src = 'assets/scripts/main.js';
+        newScript.defer = true;
+        document.head.append('newScript');
+      };
+    </script>
+  </body>
+</html>

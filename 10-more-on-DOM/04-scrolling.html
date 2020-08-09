@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <style>
+      body {
+        margin: 50px;
+      }
+
+      #myDiv {
+        background-color: aqua;
+        width: 500px;
+        height: 200px;
+        padding: 20px;
+        overflow: scroll;
+      }
+      #one,
+      #two {
+        background-color: blueviolet;
+        color: cornsilk;
+        width: 400px;
+        height: 200px;
+        margin: 10px auto;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="myDiv">
+      <div id="one">one</div>
+      <div id="two">two</div>
+    </div>
+    <script>
+      // actively control scrolling in javaScript
+      const mainDiv = document.getElementById('myDiv');
+      const divTwo = document.getElementById('two');
+      // scrollTo( x , y )
+      mainDiv.scrollTo(0, 50); // scrolls to this pixel
+
+      // scrollBy( x , y )
+      mainDiv.scrollBy(0, 50); // scrolls every time this much pixels, doesn't matter where we are
+
+      // on build-in method to use:
+      divTwo.scrollIntoView(); // brings it to the view
+
+      // we can setup animation for scrolling:
+      divTwo.scrollIntoView({ behavior: 'smooth' });
+
+      // or:
+      mainDiv.scrollTo({ left: 0, top: 100, behavior: 'smooth' });
+    </script>
+  </body>
+</html>

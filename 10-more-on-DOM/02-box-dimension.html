@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <style>
+      html {
+        font-family: sans-serif;
+      }
+
+      body {
+        margin: 100px;
+        color: #003d6e;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      #main-box {
+        box-sizing: border-box;
+        width: 300px;
+        height: 200px;
+        border: 15px solid #003d6e;
+        padding: 10px;
+        background: #4daefd;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        overflow: scroll;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main-box">
+      <h2>SIZES & POSITIONS</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil ad ea
+        tempora, repellat illum, autem culpa quidem dolor nulla praesentium
+        animi optio adipisci dicta error sint mollitia cum quos modi!
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil ad ea
+        tempora, repellat illum, autem culpa quidem dolor nulla praesentium
+        animi optio adipisci dicta error sint mollitia cum quos modi!
+      </p>
+    </div>
+
+    <!-- script start-->
+    <script>
+      // center of the coordinate is top left corner of the screen
+      const div = document.getElementById('main-box');
+      console.log(div.getBoundingClientRect());
+      /*
+        DOMRect {x: 100, y: 100, width: 300, height: 200, top: 100, …}
+            
+            position of the top left corner
+                top: 100
+                left: 100
+
+            position of the right bottom corner
+                bottom: 300
+                right: 400
+
+            size of the box
+                width: 300
+                height: 200
+
+             exactly like top left   
+                x: 100
+                y: 100
+            __proto__: DOMRect
+      */
+
+      // two ways to get the entire document width and height
+
+      // inclusive visible scrollbar:
+      window.innerWidth;
+      window.innerHeight;
+
+      // exclusive the scrollbar - recommended:
+      document.documentElement.clientWidth;
+      document.documentElement.clientHeight;
+
+      //   special properties - next file picture :
+
+      // these two are like the X and Y
+      console.log('offset-Top: ' + div.offsetTop);
+      console.log('offset-left: ' + div.offsetLeft);
+
+      // distance from the offsetTop to the inside content - like distance for border or scrollbars
+      console.log('client-top: ' + div.clientTop);
+      console.log('client-left: ' + div.clientLeft);
+
+      // sizes of the box with everything inside (border and scrollbar)
+      console.log('size-width: ' + div.offsetWidth);
+      console.log('size-height: ' + div.offsetHeight);
+
+      // inner width and height without border and scrollbar
+      console.log('client-width: ' + div.clientWidth);
+      console.log('client-height: ' + div.clientHeight);
+
+      // scroll height gives us the entire height of the content including the part that just currently not visible in the box
+      console.log('scroll-height: ' + div.scrollHeight);
+
+      // the current scrolled height of the content - it will change by scrolling every time
+      console.log('current-scroll-height: ' + div.scrollTop);
+      // scroll the content to the bottom then :
+      // (div.scrollTop + div.clientHeight) = div.scrollHeight
+
+      /////////////////////////////////////////////////////////////////////////////////////////
+      // for more info :
+      //https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement
+    </script>
+  </body>
+</html>
