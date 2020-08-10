@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <button>click</button>
+    </div>
+    <script>
+      const div = document.querySelector('div');
+      const button = document.querySelector('button');
+
+      button.addEventListener('click', (e) => {
+        console.log('the button is clicked');
+      });
+
+      div.addEventListener('click', (e) => {
+        console.log('the div is clicked');
+      });
+
+      // to test:
+      document.body.addEventListener('click', (e) => {
+        console.log('the body is clicked');
+      });
+
+      /*
+      output:
+        the button is clicked
+        the div is clicked
+      
+        as we see the bubbling effect is running, first it happened on button then the div, from inside to outside
+
+        -- by default all event listeners are registered in bubbling face
+
+        to switch to the capturing face by adding third parameter(true) to the event listener of the ancestor like this : (by default is false)
+
+            div.addEventListener('click', () => {...}, true);
+
+
+        if we add the third parameter just to 'div', result will be:
+            the div is clicked
+            the button is clicked
+            the body is clicked
+
+        if we add the third parameter just to 'body', result will be:
+            the body is clicked
+            the button is clicked
+            the div is clicked
+        
+        if we add the third parameter to both 'body' and 'div', result will be:
+            the body is clicked
+            the div is clicked
+            the button is clicked
+        ** the result will be the same if we add the true even to the button **
+
+
+        this entire process of having multiple listeners for the same event on the element and all ancestors called "Propagation" - it means the event bubbles up or in capture face goes down - but totally it means that the event happens not just on the element itself also on all ancestors
+
+        to stop this behavior we can use a method on event object: stopPropagation()
+
+        for example we don't want to stop trigger the same event on all element's ancestors only on the element itself :
+
+            button.addEventListener('click', (e) => {
+                console.log('the button is clicked');
+                e.stopPropagation();
+            });
+                
+            output:
+               the button is clicked 
+            
+        *** when the body and or the div , have the true parameter to invert the bubbling, then the stopPropagation will not have any effect on the process, the result will be:
+            the body is clicked
+            the div is clicked
+            the button is clicked
+
+
+
+        we also have :  e.stopImmediatePropagation();
+        when we have several event listeners on the same element, when we use this method,  after the first event listener then other listeners on the same element will not run any more
+
+      */
+    </script>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="">
+      <input type="text" />
+    </form>
+    <hr />
+    <button id="one">submit the form</button>
+    <hr />
+    <button id="two">activate the button one</button>
+
+    <script>
+      const form = document.querySelector('form');
+
+      form.addEventListener('submit', (e) => {
+        // no code of this event listener will be executed:
+        e.preventDefault();
+        console.log('this event listener will not be executed');
+      });
+
+      const btn1 = document.getElementById('one');
+
+      btn1.addEventListener('click', (e) => {
+        console.log('btn1 is triggered');
+        // important syntax:
+        form.submit();
+      });
+
+      const btn2 = document.getElementById('two');
+
+      btn2.addEventListener('click', (e) => {
+        console.log('btn2 is triggered');
+        // important syntax:
+        btn1.click();
+      });
+
+      /*
+      result:
+        btn2 is triggered
+        btn1 is triggered
+        form will be submitted
+      */
+    </script>
+  </body>
+</html>

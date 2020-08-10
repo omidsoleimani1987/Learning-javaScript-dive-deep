@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="">
+      <input type="text" id="title" />
+      <!--
+        <input type="submit" /> 
+        works the same as the button
+        -->
+      <button type="submit">submit</button>
+    </form>
+
+    <script>
+      // basically the submit sends the form to the server, to stop this behavior :
+      const form = document.querySelector('form');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault(); // this exist in any event not just the submit event, also can be used for link to stop it to go to the link
+        console.log(e);
+      });
+    </script>
+  </body>
+</html>

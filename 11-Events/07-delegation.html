@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      ul {
+        list-style: none;
+      }
+      li {
+        padding: 10px;
+        border: 1px solid gray;
+      }
+      .highlight {
+        background-color: lightcoral;
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="one">
+      <li>item 1</li>
+      <li>item 2</li>
+      <li>item 3</li>
+      <li>item 4</li>
+    </ul>
+
+    <ul id="two">
+      <li>
+        <h2>item 1</h2>
+        <p>some text here</p>
+      </li>
+      <li>
+        <h2>item 2</h2>
+        <p>some text here</p>
+      </li>
+      <li>
+        <h2>item 3</h2>
+        <p>some text here</p>
+      </li>
+    </ul>
+    <script>
+      /*
+      on approach - for first list with id = one:
+
+      const listItems = document.querySelectorAll('li');
+
+      listItems.forEach((item) => {
+        item.addEventListener('click', (e) => {
+          // item.classList.toggle('highlight');
+          // or
+          e.target.classList.toggle('highlight');
+        });
+      });
+
+      problem is that we created too many event listeners
+
+      */
+
+      // another approach - delegation:
+
+      const entireList1 = document.getElementById('one');
+
+      entireList1.addEventListener('click', (e) => {
+        //good to know:
+        console.log(e.currentTarget); // gives us the target on which we defined the event listener
+        e.target.classList.toggle('highlight');
+      });
+
+      // this approach may cause problem in second list situation:
+
+      const entireList2 = document.getElementById('two');
+
+      entireList2.addEventListener('click', (e) => {
+        e.target.classList.toggle('highlight');
+      });
+
+      /*
+
+      one obvious solution:
+
+      entireList2.addEventListener('click', (e) => {
+        e.target.closest('li').classList.toggle('highlight');
+      });
+
+
+      */
+    </script>
+  </body>
+</html>
