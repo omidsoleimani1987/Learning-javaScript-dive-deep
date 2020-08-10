@@ -14,7 +14,7 @@ DOM Events are sent to notify code of interesting things that have taken place. 
 *) for more on Most common categories - good to know :
   - MDN : https://developer.mozilla.org/en-US/docs/Web/Events
   - W3 : https://www.w3schools.com/jsref/dom_obj_event.asp
-
+          https://www.w3schools.com/tags/ref_eventattributes.asp
 
 ways of listening to events:
 

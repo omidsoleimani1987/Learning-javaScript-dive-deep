@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+  <head>
+    <title>Document</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #start, #end{
+            width: 500px;
+            height: 500px;
+            border: 1px solid black;
+            display: flex;
+            padding: 5px;
+        }
+
+        #start{
+            background-color: rgb(178, 196, 253);
+        }
+        #end {
+            background-color: rgb(248, 188, 230);
+        }
+        .box-start, .box-end {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            margin: 10px;
+        }
+        .box-start {
+            background-color: lime;
+        }
+        .box-end {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+        }
+        .droppable {
+            background-color: rgb(223, 47, 76);
+        }
+    </style>
+  </head>
+  <body>
+    <div id="start">
+        <div id="box1" class="box-start"></div>
+        <div id="box2" class="box-start"></div>
+    </div>
+    <div id="end"></div>
+    <script>
+        
+        const divStart = document.getElementById('start');
+        const divEnd = document.getElementById('end');
+        
+        // step - 1) we should make the elements draggable, with html attribute (draggable="true") or making the property equal to true in javaScript:
+
+        const boxes = document.querySelectorAll('.box-start');
+        boxes.forEach(box => {
+            box.setAttribute('draggable', 'true');
+            
+        });
+        
+        // step - 2) listen to drag start event
+            // we can set the dragstart on the box it self too 
+        divStart.addEventListener('dragstart', e => {
+            
+            // to test...
+            console.log('drag started - and target is: ');
+            console.log(e.target);
+            
+            // The dataTransfer.setData() method sets the data type and the value of the dragged data:
+            // https://developer.mozilla.org/en-US/docs/Web/API/DataTransfer
+            e.dataTransfer.setData('text/plain', e.target.id);
+            
+            // this property specifies the effect that is allowed for a drag operation:
+            // https://developer.mozilla.org/en-US/docs/Web/API/DataTransfer/effectAllowed
+            e.dataTransfer.effectAllowed = 'move';
+            
+            // make parent element background color to other color to play around, we will bring it back to the old color in next lines:
+            divStart.style.backgroundColor = 'rgb(31, 83, 253)';
+
+        });
+        
+
+
+        // bring the color back :
+        divStart.addEventListener('dragleave', e => {
+            // to test...
+            console.log('drag leaved - and target is: ');
+            console.log(e.target);
+            if (e.relatedTarget.closest('div#start') !== divStart) {
+                divStart.style.backgroundColor = 'rgb(178, 196, 253)';
+            }
+        });
+
+
+        // step - 3) make a drop zone
+        // dragenter is optional but dragover  has to be there and we have to prevent the default behavior of not allowing to drop (browser default behavior) 
+        
+        divEnd.addEventListener('dragenter', e => {
+            // e.preventDefault();
+            // or better (when we have different draggable elements on our website):
+            if (e.dataTransfer.types[0] === 'text/plain') {
+                e.preventDefault();
+                // ...
+                console.log('drag enter ---> default prevented');
+            }
+
+            // to show other opportunities:
+            divEnd.style.backgroundColor= 'rgb(223, 47, 76)';
+        });
+
+        divEnd.addEventListener('dragover', e => {
+            // e.preventDefault();
+            // or better (when we have different draggable elements on our website):
+            if (e.dataTransfer.types[0] === 'text/plain') {
+                e.preventDefault();
+                // ...
+                console.log('drag over ---> default prevented');
+            }
+        });
+
+
+        // last - drop event:
+        divEnd.addEventListener('drop', e => {
+            // to test...
+            console.log('drag dropped - and target is: ');
+            console.log(e.target);
+
+            // retrieve dataTransfer:
+            const boxId = e.dataTransfer.getData('text/plain');
+            const draggedBox = document.getElementById(boxId);
+            divEnd.append(draggedBox);
+        });
+
+    </script>
+  </body>
+</html>
