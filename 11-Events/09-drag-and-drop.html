@@ -22,20 +22,16 @@
         #end {
             background-color: rgb(248, 188, 230);
         }
-        .box-start, .box-end {
-            width: 50px;
-            height: 50px;
+        .box {
+            width: 100px;
+            height: 100px;
             border: 1px solid black;
             margin: 10px;
         }
-        .box-start {
+        .box {
             background-color: lime;
         }
-        .box-end {
-            width: 50px;
-            height: 50px;
-            border: 1px solid black;
-        }
+        
         .droppable {
             background-color: rgb(223, 47, 76);
         }
@@ -43,8 +39,8 @@
   </head>
   <body>
     <div id="start">
-        <div id="box1" class="box-start"></div>
-        <div id="box2" class="box-start"></div>
+        <div id="box1" class="box"></div>
+        <div id="box2" class="box"></div>
     </div>
     <div id="end"></div>
     <script>
@@ -54,7 +50,7 @@
         
         // step - 1) we should make the elements draggable, with html attribute (draggable="true") or making the property equal to true in javaScript:
 
-        const boxes = document.querySelectorAll('.box-start');
+        const boxes = document.querySelectorAll('.box');
         boxes.forEach(box => {
             box.setAttribute('draggable', 'true');
             
@@ -129,8 +125,16 @@
 
             // retrieve dataTransfer:
             const boxId = e.dataTransfer.getData('text/plain');
+
             const draggedBox = document.getElementById(boxId);
             divEnd.append(draggedBox);
+
+            divEnd.style.backgroundColor= 'rgb(248, 188, 230)';
+
+            /*
+            if drag was successful, in event -> dataTransfer -> dropEffect will be set from 'none' to what we defined for effectAllowed ('move' in this case), with this property we can find out that our drop was successful
+            */
+
         });
 
     </script>
