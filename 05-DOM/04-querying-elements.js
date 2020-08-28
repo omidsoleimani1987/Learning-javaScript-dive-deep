@@ -1,6 +1,7 @@
 /*
 DOM nodes are the javaScript objects in the end, these methods return the object references (addresses)
 
+Takes any CSS selector (e.g. '#some-id', '.some-class' or 'div p.some-class') and returns the first (!) matching element in the DOM. Returns null if no matching element could be found.
 
 querySelector(); -> by CSS selectors
 getElementById(); -> by ID
@@ -18,11 +19,6 @@ getElementsByClassName();
 * - gives you a none-live node list (snapshot of the currently rendered DOM)
 
 
-Takes any CSS selector (e.g. '#some-id', '.some-class' or 'div p.some-class') and returns the first (!) matching element in the DOM. Returns null if no matching element could be found.
-
-*/
-
-/*
 ?) document.querySelectorAll(<CSS selector>);
     Takes any CSS selector (e.g. '#some-id', '.some-class' or 'div p.some-class') and returns all matching elements in the DOM as a static (non-live) NodeList. Returns and empty "NodeList" if no matching element could be found.
 

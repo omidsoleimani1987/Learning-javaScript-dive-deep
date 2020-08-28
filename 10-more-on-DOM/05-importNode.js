@@ -1,4 +1,6 @@
 /*
+in "iframe" for example:
+
 The Document object's importNode() method creates a copy of a Node or DocumentFragment from another document, to be inserted into the current document later.
 
 The imported node is not yet included in the document tree. To include it, you need to call an insertion method such as appendChild() or insertBefore() with a node that is currently in the document tree.
@@ -8,8 +10,6 @@ Unlike document.adoptNode(), the original node is not removed from its original 
 *)Note: The original node is not removed from the other document. The imported node is a copy of the original.
 
 *)Tip: Use the document.adoptNode() method to remove and import a node from another document.
-
-*)Tip: Use the element.cloneNode() method to copy a node from the current document.
 
 Syntax
     const importedNode = document.importNode(externalNode [, deep]);

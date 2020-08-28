@@ -34,9 +34,7 @@ every time we use a property or method without mentioning the object, the browse
 alert(); --> window.alert();
 or document.getElementById(0); --> window.document.getElementById(0);
 
-there some events in the window object too
-
-
+there are some events in the window object too
 
 window object has only access to the current tab not all the tabs, and some common functionality of the browser window
 */

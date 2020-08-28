@@ -5,14 +5,14 @@ div.style.backgroundColor = 'red';
 /*
 class styling
 
-*) className takes one string included the name of all classes should be added
+*) className takes one "string" included the name of all classes should be added
 it removes the current class name string and replace it with what we give to it
 like this(it has already three classes):
 <div class="red-background visible container"> ... </div>
 div.className = 'ourClass';
 <div class="ourClass"> ... </div>
 
-*) classList is a javaScript object not a string like className with bield in methods
+*) classList is a javaScript "object" not a string like className with build-in methods
 
 ! internet Explorer doesn't support
 
@@ -36,8 +36,8 @@ Adds one or more class names to an element. If the specified class already exist
     - div.classList.toggle('class', true|false)
 
     Toggles between a class name for an element.
-    The first parameter removes the specified class from an element, and returns false.
-    If the class does not exist, it is added to the element, and the return value is true.
+    *) The first parameter removes the specified class from an element, and returns false.
+    *) If the class does not exist, it is added to the element, and the return value is true.
     The optional second parameter is a Boolean value that forces the class to be added or removed, regardless of whether or not it already existed. 
 
 
@@ -48,9 +48,6 @@ Adds one or more class names to an element. If the specified class already exist
         true - the element contains the specified class name
         false - the element does not contain the specified class name
 
-    
-    - div.classList.contains('class')
-    
     
     - div.classList.item(index)
     

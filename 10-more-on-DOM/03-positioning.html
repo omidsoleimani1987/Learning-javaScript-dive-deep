@@ -3,6 +3,9 @@
   <head>
     <title>Document</title>
     <style>
+      * {
+        box-sizing: border-box;
+      }
       body {
         margin: 50px;
       }
@@ -36,10 +39,10 @@
 
       const hostElementTop = divTwo.offsetTop;
       const hostElementLeft = divTwo.offsetLeft;
-      const hostElementHight = divTwo.clientHeight;
+      const hostElementHeight = divTwo.clientHeight;
 
       const x = hostElementLeft + 100; // values are pixels like 30
-      const y = hostElementTop + hostElementHight - 15;
+      const y = hostElementTop + hostElementHeight - 15;
 
       // position:
       divTwo.style.position = 'absolute';

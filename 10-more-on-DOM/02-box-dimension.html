@@ -76,7 +76,7 @@
       window.innerHeight;
 
       // exclusive the scrollbar - recommended:
-      document.documentElement.clientWidth;
+      document.documentElement.clientWidth; // document.documentElement = <html>
       document.documentElement.clientHeight;
 
       //   special properties - next file picture :
@@ -90,8 +90,8 @@
       console.log('client-left: ' + div.clientLeft);
 
       // sizes of the box with everything inside (border and scrollbar)
-      console.log('size-width: ' + div.offsetWidth);
-      console.log('size-height: ' + div.offsetHeight);
+      console.log('offset-width: ' + div.offsetWidth);
+      console.log('offset-height: ' + div.offsetHeight);
 
       // inner width and height without border and scrollbar
       console.log('client-width: ' + div.clientWidth);

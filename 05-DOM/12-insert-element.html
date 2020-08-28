@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> </title>
-  </head>
   <body>
     <header>
       <h1>Hello world</h1>
@@ -19,21 +16,22 @@
 ?) second way: createElement()
 
 *1) document.createElement()
-    In an HTML document, the document.createElement() method creates the HTML element specified by tagName (only works on document not other elements)
+    In HTML document, the document.createElement() method creates the HTML element specified by tagName 
+    ! (only works on document not other elements)
 
     const ul = document.querySelector('ul');
     const li = document.createElement('li');
     li.textContent = 'new item';
 
 *2) appendChild()
-  The Node.appendChild() method adds a node to the end of the list of children of a specified parent node. If the given child is a reference to an existing node in the document, appendChild() moves it from its current position to the new position. This means that a node can't be in two points of the document simultaneously. So if the node already has a parent, the node is first removed, then appended at the new position
+  The Node.appendChild() method adds a node to the "end" of the list of children of a specified parent node. If the given child is a reference to an existing node in the document, appendChild() moves it from its current position to the new position. This means that a node can't be in two points of the document simultaneously. So if the node already has a parent, the node is first removed, then appended at the new position
   todo) good browser support
 
-    ul.appendChild(li); => adds as the last child element for th ul element
+    ul.appendChild(li); => adds as the last child element for the ul element
 
 
 *3) append()
-  The ParentNode.append() method inserts a set of Node objects or DOMString objects after the last child of the ParentNode. DOMString objects are inserted as equivalent Text nodes.
+  The ParentNode.append() method inserts a "set" of Node objects or DOMString objects after the last child of the ParentNode. DOMString objects are inserted as equivalent Text nodes.
   ! internet explorer doesn't support
 
   Differences from Node.appendChild():
@@ -48,7 +46,7 @@
 
 
 *4) prepend()
-    The ParentNode.prepend() method inserts a set of Node objects or DOMString objects before the first child of the ParentNode. DOMString objects are inserted as equivalent Text nodes.
+    The ParentNode.prepend() method inserts a "set" of Node objects or DOMString objects before the first child of the ParentNode. DOMString objects are inserted as equivalent Text nodes.
     ! internet explorer doesn't support
 
 
@@ -93,10 +91,10 @@
     todo) good browser support
 
     Legal position values are:
-      "afterbegin"
-      "afterend"
       "beforebegin"
+      "afterbegin"
       "beforeend"
+      "afterend"
 
     node.insertAdjacentElement(position, element)
 
@@ -117,6 +115,7 @@
     ! internet explorer doesn't support
 
 
+* ************************************************************************************** *
 
 todo) good browser support
 appendChild()
