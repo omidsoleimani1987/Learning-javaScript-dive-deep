@@ -1,6 +1,6 @@
 /*
 in javaScript :
-    - primitives values:
+    - primitive values:
         undefined
         numbers
         strings

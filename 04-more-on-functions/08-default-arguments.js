@@ -7,7 +7,7 @@ name(); // output : max
 name('omid'); // output : omid
 
 /*
-in two situation the javaScript will use the default value :
+in these two situation the javaScript will use the default value :
     passing no argument
     passing 'undefined'
 

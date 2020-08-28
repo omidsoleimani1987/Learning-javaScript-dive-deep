@@ -9,3 +9,14 @@ const newArray = oldArray.reduce(
   0
 );
 console.log(newArray); // 6
+
+const oldArray2 = ['omid', 'mely', 'max'];
+const newArray2 = oldArray2.reduce(
+  (previousValue, currentValue, index, fullArray) => {
+    // previousValue : initial value (optional) that we gave as a parameter
+    // currentValue : values from the array one by one
+    return previousValue + ' ' + currentValue;
+  },
+  'our three names: '
+);
+console.log(newArray2); // our three names:  omid mely max

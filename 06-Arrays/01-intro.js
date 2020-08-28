@@ -1,7 +1,7 @@
 /*
 iterables:
     Objects that implement the “iterable” protocol and have an @@iterator method (i.e. Symbol.iterator)
-    objects that we can use the for of loop
+    objects that we can use the for-of loop for them
 
 Not every iterable is an array! Other iterables are for example: NodeList, String, Map, Set
 

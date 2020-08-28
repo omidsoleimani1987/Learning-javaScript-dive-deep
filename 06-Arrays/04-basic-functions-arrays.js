@@ -2,12 +2,14 @@ const oldArray = [1, 2, 3, 4, 5];
 
 // slice() :
 const newArray = oldArray.slice(); // [ 1, 2, 3, 4, 5 ]
+
 //todo) makes a copy of the array and assign it to new variable instead of an reference address from the old array:
 const first = [1, 2];
 const second = first.slice();
 
 first.push(3);
-console.log(first, second); //[ 1, 2, 3 ] [ 1, 2 ]
+console.log(first, second); // [ 1, 2, 3 ] [ 1, 2 ]
+
 //!) this rule does NOT contain the objects:
 const objOne = [{ name: 'omid' }];
 const objTwo = objOne.slice();
@@ -27,7 +29,7 @@ const three = oldArray.slice(2); // [ 3, 4, 5 ]
 const otherArray = [6, 7, 8];
 const combinedArray = oldArray.concat(otherArray); // [ 1, 2, 3, 4, 5, 6, 7, 8 ]
 
-//finding the index of certain values: return the first occurrence not all indexes
+// finding the index of certain values: return the first occurrence not all indexes
 const array = [1, 2, 3, 4, 5, 2, 4];
 array.indexOf(2); // 1
 array.lastIndexOf(2); // 5
@@ -49,7 +51,7 @@ const findIndex = objectArray.findIndex(
     return theCurrentItem.name === 'max';
   }
 );
-console.log(findIndex); // 0
+console.log(findIndex); // 1
 
 //find is part of an array:
 const names = ['omid', 'max'];

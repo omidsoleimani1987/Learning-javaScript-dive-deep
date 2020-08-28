@@ -1,6 +1,6 @@
 /*
 map() :
-    creates a new array from each of items from old array without changing the old array, and there is no need to push eahc item to the new array like the forEach method 
+    creates a new array from each of items from old array without changing the old array, and there is no need to push each item to the new array like the forEach method 
 */
 const oldArray = [11, 13];
 const newArray = oldArray.map((theCurrentItem, indexOfTheItem, fullArray) => {

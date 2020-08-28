@@ -21,5 +21,5 @@ button.addEventListener(
 another point:
  it is good to use a name for anonymous functions too because of debugging
 
- it helps to find the errors with the name which we gave to the function nut by using the <anonymous> 
+ it helps to find the errors with the name which we gave to the function not by using the <anonymous> 
 */

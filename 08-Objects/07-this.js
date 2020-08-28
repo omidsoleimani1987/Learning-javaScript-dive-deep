@@ -64,13 +64,13 @@ for example we have this buttons in our html code
 // when we use this keyword in a method from an object
 // it does NOT refer to the object surround it , but to the thing that calls this method
 
-console.log(this); // Window {parent: Window, opener: null, top: Window, …}
+console.log(this); // logs global object (window in browser) - ALWAYS (also in strict mode)!
 
 const myFunction = function () {
   console.log(this);
 };
 
-myFunction(); // Window {parent: Window, opener: null, top: Window, …}
+myFunction(); // logs global object (window in browser) in non-strict mode, undefined in strict mode
 
 // it refers to the window object because the window object is responsible to call this function
 
@@ -78,12 +78,16 @@ const anotherFunction = () => {
   console.log(this);
 };
 
-anotherFunction(); // Window {parent: Window, opener: null, top: Window, …}
+anotherFunction(); // logs global object (window in browser) - ALWAYS (also in strict mode)!
 
 // in objects:
 
 const person = {
   greet: function () {
+    console.log(this);
+  },
+  // or shorthand
+  greet() {
     console.log(this);
   }
 };
@@ -91,16 +95,6 @@ const person = {
 person.greet(); // Object: greet: ƒ ()
 
 // it shows the person object because behind the greet function we used the object person, actually person object is responsible to call the function(method)
-
-// or the same:
-
-const personTwo = {
-  greet() {
-    console.log(this);
-  }
-};
-
-personTwo.greet(); // Object: greet: ƒ ()
 
 //!) but look this:
 
@@ -110,7 +104,7 @@ const personThree = {
   }
 };
 
-personThree.greet(); // Window {parent: Window, opener: null, top: Window, …}
+personThree.greet(); // logs nothing (or some global name on window object), "this" refers to global (window) object, even in strict mode
 
 //todo) we come back to this later...just keep in mind arrow functions behave different
 
@@ -170,6 +164,7 @@ PulledFunction();
 // console.log(this.name) --> result : omid
 
 /*
+
 *) another situation is that another object or thing calls our method
 
 myButton3.addEventListener('click', mainObject.greet);
@@ -191,15 +186,15 @@ myButton3.addEventListener('click', mainObject.greet.bind(mainObject));
 it is the same just call and apply gives us the option to pass parameters into the callback function in different ways
   
   - call() :
-      anyFunction.call(object, , , , , );
+      anyFunction.call(object, par1, par2, par3 );
 
   - apply() :
-      anyFunction.apply(object, [ , , , ] );
+      anyFunction.apply(object, [ par1, par2, par3 ] );
 
 
 !) the main difference between call and apply with bind is:
     - bind prepares the function for future execution , therefore we have to call it by our self after
-    - call and apply the refer the function or method to what we want and then execute it at the same time
+    - call and apply they refer the function or method to what we want and then execute it at the same time
 
 like this :
 */
@@ -256,15 +251,18 @@ we have a button in html body:
 const btn = document.getElementById('btn');
 
 class MyClass {
+  //properties:
   item = [1, 2, 3];
-  myMethod() {
-    console.log(this.item);
-    console.log(this);
-  }
   myProperty = () => {
     console.log(this.item);
     console.log(this);
   };
+
+  // methods:
+  myMethod() {
+    console.log(this.item);
+    console.log(this);
+  }
 }
 
 const myObject = new MyClass();
@@ -282,14 +280,14 @@ console.log(this.item); // --> (3) [1, 2, 3]
 console.log(this); // --> MyClass {item: Array(3)}
 
 //*) second solution:
-// arrow function with parentheses, it should be with parentheses because when the anonymous function calls it, it should be prepare to execution
+// arrow function with parentheses, it should be with parentheses because when the anonymous function calls it, it should be prepare to execution, then the button does not call this but the anonymous function
 
 btn.addEventListener('click', () => myObject.myMethod());
 console.log(this.item); // --> (3) [1, 2, 3]
 console.log(this); // --> MyClass {item: Array(3)}
 
 //*) third solution:
-//change the method inside the object to a filed(property) and use arrow function to define it
+// change the method inside the object to a filed(property) and use arrow function to define it
 
 btn.addEventListener('click', myObject.myProperty);
 console.log(this.item); // --> (3) [1, 2, 3]

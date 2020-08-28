@@ -63,7 +63,7 @@ const person = {
   }
 };
 
-//or
+// this is the exact like above just a shorthand:
 
 const person = {
   greet() {

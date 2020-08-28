@@ -28,7 +28,7 @@ console.log(typeof info); // object
 //*) we can stor the rest like this:
 const { name, ...theRest } = object;
 console.log(name); // 'omid'
-console.log(theRest); // { age: 33, info: { skill: 'coding', hobby: 'nothing' } }
+console.log(theRest); // { age: 33, info: { skill: 'coding', hobby: 'nothing' }, greet: [Function: greet] }
 
 //todo) we can store them in new variables with new names:
 const { info: details } = object;

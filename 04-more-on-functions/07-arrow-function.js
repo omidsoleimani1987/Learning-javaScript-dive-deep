@@ -23,11 +23,11 @@ general syntax:
       };
 
 -- exactly one expression in function body :
-    curly braces can be omitted, the result is returned
+    curly braces can be omitted, the result is "returned"
     (a, b) => a + b
       const add = (a, b) => a + b;
 
--- exactly one expression in function body :
+-- more than one expression in function body :
     curly braces and return is required
     (a, b) => {
         a*=2;

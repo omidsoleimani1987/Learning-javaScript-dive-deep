@@ -17,4 +17,4 @@ console.log(oldArray, newArray); // [ 1, 2, 3, 4 ] , [ 1, 2, 3 ]
 //* but we can :
 Math.min(...oldArray); // 1
 
-//todo) if our array contains objects and we try to copy old array to new array this method we should be careful, because with the objects it creates just the reference address to the new array, any changes to the old array will appear in the new array too *****  be aware of this point  ***** just like the slice method , it still doesn't make a copy of the objects it just copy the reference
+//todo) if our array contains objects and we try to copy old array to new array with this method we should be careful, because with the objects it creates just the reference address to the new array, any changes to the old array will appear in the new array too *****  be aware of this point  ***** just like the slice method , it still doesn't make a copy of the objects it just copy the reference

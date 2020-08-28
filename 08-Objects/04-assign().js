@@ -8,8 +8,8 @@ console.log(newObject); // { name: 'omid' }
 
 oldObject.name = 'max';
 
-console.log(newObject); // { name: 'omid' }
 console.log(oldObject); // { name: 'max' }
+console.log(newObject); // { name: 'omid' }
 
 // still spread operator is recommended
 

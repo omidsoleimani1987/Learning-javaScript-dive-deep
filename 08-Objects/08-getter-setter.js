@@ -59,7 +59,7 @@ console.log(person2.getter); // DEFAULT
 
 /*********************************************************************************************/
 
-// good practice : naming all the same
+//TODO)   good practice : naming all the same
 
 const person3 = {
   set name(myValue) {
@@ -72,6 +72,20 @@ const person3 = {
 
   get name() {
     return this._name.toUpperCase();
+  },
+
+  // we can have more than one:
+
+  set age(myValue) {
+    if (!!myValue) {
+      this._age = myValue;
+    } else {
+      this._age = 35;
+    }
+  },
+
+  get age() {
+    return this._age;
   }
 };
 
@@ -83,3 +97,6 @@ console.log(person3.name); // OMID
 
 person3.name = '';
 console.log(person3.name); // DEFAULT
+
+person3.age = 50;
+console.log(person3.age); // 50

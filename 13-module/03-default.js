@@ -18,12 +18,4 @@ we can have default export from a file and normal export from the same file, lik
 by importing, default export without curly brackets and the normal export with curly brackets:
     import newName, { myFunction } from ...
 
-
-
-
-
-
-
-
-
 */

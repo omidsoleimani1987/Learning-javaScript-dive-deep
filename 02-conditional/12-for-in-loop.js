@@ -2,7 +2,7 @@
 const ourObject = {
   name: 'omid',
   age: 33,
-  sex: 'male',
+  sex: 'male'
 };
 
 for (const key in ourObject) {
@@ -36,7 +36,7 @@ console.log('----------------');
 for (const myKey in {
   car: 'BMW-M4',
   model: '2020',
-  color: 'of course black!',
+  color: 'of course black!'
 }) {
   console.log(myKey);
 }

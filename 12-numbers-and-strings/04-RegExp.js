@@ -104,10 +104,4 @@ by \S we don't mean capital s character but we mean any word because it defined 
 
 *) better way is to look for the regexp in web for better solutions
 
-
-
-
-
-
-
 */

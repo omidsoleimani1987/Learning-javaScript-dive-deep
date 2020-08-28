@@ -9,7 +9,7 @@ class SubClass extends MainClass {
 }
 
 
-when the main class has a constructor function and the sub class doesn't have a constructor function, be creating an object of the sub class, the constructor of the main class will be automatically called. some times it makes problem with passing the parameters into the main class constructor function.
+when the main class has a constructor function and the sub class doesn't have a constructor function, by creating an object of the sub class, the constructor of the main class will be automatically called. some times it makes problem with passing the parameters into the main class constructor function.
 
 but we both classes have constructor function, then just the constructor of the sub class will be called not the constructor for the main class.
 

@@ -15,8 +15,8 @@ let and const work with the {} (not curly braces in object) they don't care abou
 
 {
   let name = 'david';
-  if () {
-      // something
+  if (true) {
+    // something
   }
   console.log('it works');
 }

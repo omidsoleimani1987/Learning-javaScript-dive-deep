@@ -10,6 +10,8 @@ const newArray = oldArray.sort((a, b) => {
   }
 });
 
+// sort doesn't create a brand new array
+
 console.log(newArray); // [ -43, 3, 12, 23, 54 ]
 
 const anotherArray = newArray.reverse();

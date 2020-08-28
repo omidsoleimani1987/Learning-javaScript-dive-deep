@@ -2,7 +2,7 @@
 when we want to call a function with the different amount of parameters each time or we call the function not by our own then the application will call it somewhere in the code then we can use the rest parameters
 
 the solution is to use rest operator ...
-for having the different amount of parameters we can send the parameters as an array nut this rest operator takes our parameters and turns them into an array inside the function for us
+for having the different amount of parameters we can send the parameters as an array but this rest operator takes our parameters and turns them into an array inside the function for us
 */
 
 const sumUp = (...params) => {
@@ -17,7 +17,7 @@ sumUp(4);
 sumUp(4, 100, 56);
 sumUp(4, 3, 65, 655, 71);
 
-// if we expect another argument or more too, the rest parameter should be always the last argument
+// if we expect another argument or more, the rest parameter should be always the last argument
 
 //we can't have two rest parameters in a function
 

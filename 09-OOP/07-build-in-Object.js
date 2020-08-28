@@ -41,4 +41,4 @@ console.log(myObject3); // {name: "omid", age: 40}
 
 myObject3.age = 50;
 console.log(myObject3); // {name: "omid", age: 40}
-// point is we don't get error, it just had been ignored
+// point : we don't get an error, it just had been ignored
