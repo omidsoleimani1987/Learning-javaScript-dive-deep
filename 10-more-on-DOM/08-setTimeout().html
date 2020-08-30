@@ -5,9 +5,9 @@
   </head>
   <body>
     <!-- 
-  *) The setTimeout() method of the WindowOrWorkerGlobalScope mixin (and successor to Window.setTimeout()) sets a timer which executes a function or specified piece of code once the timer expires.
+  *) The setTimeout() method of the Window or WorkerGlobalScope : sets a timer which executes a function or specified piece of code once the timer expires.
 
-  setTimeout(function to execute, delay, arrays of argument to pass into the function)
+   - setTimeout(function to execute, delay, arrays of argument to pass into the function)
 
   *) this timer runs just once! for running for example every 3 seconds we should use intervals
 
@@ -23,7 +23,7 @@
   Parameters
     - function
         A function to be executed after the timer expires.
-
+        ! without parentheses
     - code
         An alternative syntax that allows you to include a string instead of a function, which is compiled and executed when the timer expires. This syntax is not recommended for the same reasons that make using eval() a security risk.
 
@@ -33,12 +33,25 @@
     - arg1, ..., argN Optional
         Additional arguments which are passed through to the function specified by function.
   -->
+
     <button onclick="delayedAlert();">
       Show an alert box after two seconds
     </button>
     <button onclick="clearAlert();">Cancel alert before it happens</button>
 
     <script>
+      // general ways for setTimeout and setInterval:
+      // 1:
+      setTimeout(function () {
+        alert('I am an alert!');
+      }, 3000);
+      // 2:
+      setTimeout(() => {
+        alert('I am an alert!');
+      }, 3000);
+      // 3: recommended
+      setTimeout(alert, 3000, 'I am an alert!');
+
       var timeoutID;
 
       function delayedAlert() {

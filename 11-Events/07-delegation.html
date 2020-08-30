@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
       ul {
+        padding: 20px;
+        border: 1px solid black;
         list-style: none;
       }
       li {
+        margin: 5px;
         padding: 10px;
         border: 1px solid gray;
       }
@@ -25,6 +26,10 @@
       <li>item 4</li>
     </ul>
 
+    <br /><br />
+    <hr />
+    <br /><br />
+
     <ul id="two">
       <li>
         <h2>item 1</h2>
@@ -39,6 +44,7 @@
         <p>some text here</p>
       </li>
     </ul>
+    <!-- todo: try it in browser -->
     <script>
       /*
       on approach - for first list with id = one:
@@ -62,8 +68,11 @@
       const entireList1 = document.getElementById('one');
 
       entireList1.addEventListener('click', (e) => {
-        //good to know:
-        console.log(e.currentTarget); // gives us the target on which we defined the event listener
+        // good to know: difference between the "e.currentTarget" and "e.target"
+        // "e.currentTarget" : gives us the target on which we defined the event listener
+        // "e.target" : gives us the exact element on which the event is happened
+        console.log(e.currentTarget);
+        console.log(e.target);
         e.target.classList.toggle('highlight');
       });
 
@@ -72,6 +81,9 @@
       const entireList2 = document.getElementById('two');
 
       entireList2.addEventListener('click', (e) => {
+        // to test
+        console.log(e.currentTarget);
+        console.log(e.target);
         e.target.classList.toggle('highlight');
       });
 

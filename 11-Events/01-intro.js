@@ -30,33 +30,40 @@ const btn = document.getElementById('btn');
 btn.onclick = myFunctionHandler; // without execute
 // or
 btn.onclick = function () {
-  console.log('hi');
+  console.log('greet');
 };
 // or
 btn.onclick = () => {
-  console.log('hello');
+  console.log('greet');
 };
-
+//or
+btn.addEventListener('click', () => {
+  console.log('greet');
+});
+//or
+btn.addEventListener('click', function () {
+  console.log('greet');
+});
 // better practice:
 const ourFunction = () => {
   console.log('greet');
 };
 btn.addEventListener('click', ourFunction);
 
-//*) in this approach we are able to add and 'remove' event from the element:
+//*) in this approach we are able to 'add' and 'remove' event from the element:
 
-// to remove event we can use removeEventListener, it is important to know what we pass into the 'addEventListener' should be exactly what we pass into the 'removeEventListener'.... not anonymous function, not arrow function, not bind function, jest the exact name of the function which we passed to the 'addEventListener'
+// to remove event we can use removeEventListener, it is important to know what we pass into the 'addEventListener' should be exactly what we pass into the 'removeEventListener'.... not anonymous function, not arrow function, not bind function, just the exact name of the function which we passed to the 'addEventListener'
 
 btn.removeEventListener('click', ourFunction); // works
 
 // these will not work:
 
 btn.addEventListener('click', () => {
-  console.log('hello');
+  console.log('greet');
 });
 
 btn.removeEventListener('click', () => {
-  console.log('hello');
+  console.log('greet');
 });
 
 // these too, will not work:

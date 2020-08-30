@@ -12,6 +12,8 @@ const myError = new Error();
 const myError = new Error('this is the message for my error which I created');
 
 // try this --> throw myError;
+console.log(myError.message);
+// output : this is the message for my error which I created
 
 const mySecondError = new Error();
 mySecondError.name = 'this is the name';

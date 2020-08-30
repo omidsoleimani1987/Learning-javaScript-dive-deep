@@ -18,5 +18,5 @@ btn.addEventListener('click', (e) => {
   console.log(e.target);
 });
 
-// more on HTML DOM Event Properties and Methods:
-https://www.w3schools.com/jsref/dom_obj_event.asp
+// HTML DOM Event Properties and Methods:
+// https://www.w3schools.com/jsref/dom_obj_event.asp

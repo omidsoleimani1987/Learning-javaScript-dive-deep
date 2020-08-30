@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
+      body {
+        margin: 10px;
+        border: 1px solid black;
+      }
       #myDiv {
         height: 3000px;
       }
@@ -22,9 +26,11 @@
       let curElementNumber = 0;
 
       function scrollHandler() {
-        const distanceToBottom = document.body.getBoundingClientRect().bottom;
-
-        if (distanceToBottom < document.documentElement.clientHeight + 150) {
+        // the distance of the bottom of the body to the top of the screen
+        const bodyBottom = document.body.getBoundingClientRect().bottom;
+        // by scrolling the page, the bottom of the body get closer to the top of the screen until the point that the bottom of the body placed at the end line of the screen, which means, that the height of the screen is equal to the distance of the bottom of the body to the top of the screen
+        const screenHeight = document.documentElement.clientHeight;
+        if (bodyBottom < screenHeight + 150) {
           const newDataElement = document.createElement('div');
           curElementNumber++;
           newDataElement.innerHTML = `<p>Element ${curElementNumber}</p>`;
