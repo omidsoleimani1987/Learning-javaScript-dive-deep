@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      // cookies:
+      // you need a server side code to read the cookies and do something with them otherwise they are useless
+
+      // get access to ALL cookies:
+      console.log(document.cookie); // output : nothing will happen, nothing to show
+
+      // add cookie:
+      const userId = 'u123';
+      document.cookie = `uid=${userId}`; // nothing will happen because we need a server
+      // in terminal --> serve
+
+      console.log(document.cookie); // output : uid=u123
+
+      const user = {
+        name: 'omid',
+        age: 33,
+        hobbies: ['coding', 'films']
+      };
+
+      document.cookie = `user=${JSON.stringify(user)}`;
+
+      // we don't have the nice methods like local storage and session storage to get our cookies
+      console.log(document.cookie); // output : uid=u123; user={"name":"omid","age":33,"hobbies":["coding","films"]}
+
+      // but we can do like this:
+      const cookieData = document.cookie.split(';');
+
+      const data = cookieData.map((item) => {
+        return item.trim();
+      });
+
+      console.log(data); // array : ["uid=u123", "user={"name":"omid","age":33,"hobbies":["coding","films"]}"]
+
+      // or more:
+
+      console.log(data[1].split('=')); // array : ["user", "{"name":"omid","age":33,"hobbies":["coding","films"]}"]
+
+      console.log(data[1].split('=')[1]); // string: {"name":"omid","age":33,"hobbies":["coding","films"]}
+
+      console.log(JSON.parse(data[1].split('=')[1])); // js object : {name: "omid", age: 33, hobbies: Array(2)}
+
+      // add expiry:
+
+      document.cookie = 'name=omid; max-age=30'; // max-age works with seconds
+      document.cookie = 'name=omid; expires='; // expires works with date
+
+      // when we work with expire, the methods above to retrieve the cookies maybe don't work correctly, because the cookies that expired, they replace their index position with the cookies that still are valid, so be aware of this to search in "document.cookie"
+
+      // more on MDN : https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie :
+
+      // Get a sample cookie named test2
+      document.cookie = 'test1=Hello';
+      document.cookie = 'test2=World';
+
+      const cookieValue = document.cookie
+        .split('; ')
+        .find((row) => row.startsWith('test2'))
+        .split('=')[1];
+
+      // Do something only once, In order to use the following code, please replace all occurrences of the word doSomethingOnlyOnce (the name of the cookie) with a custom name.
+      function doOnce() {
+        if (
+          !document.cookie
+            .split('; ')
+            .find((row) => row.startsWith('doSomethingOnlyOnce'))
+        ) {
+          alert('Do something here!');
+          document.cookie =
+            'doSomethingOnlyOnce=true; expires=Fri, 31 Dec 9999 23:59:59 GMT';
+        }
+      }
+
+      // Reset the previous cookie
+      function resetOnce() {
+        document.cookie =
+          'doSomethingOnlyOnce=; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+      }
+
+      // Check a cookie existence
+      //ES5
+      if (
+        document.cookie.split(';').some(function (item) {
+          return item.trim().indexOf('reader=') == 0;
+        })
+      ) {
+        console.log('The cookie "reader" exists (ES5)');
+      }
+
+      //ES2016
+      if (
+        document.cookie
+          .split(';')
+          .some((item) => item.trim().startsWith('reader='))
+      ) {
+        console.log('The cookie "reader" exists (ES6)');
+      }
+
+      // Check that a cookie has a specific value
+      //ES5
+      if (
+        document.cookie.split(';').some(function (item) {
+          return item.indexOf('reader=1') >= 0;
+        })
+      ) {
+        console.log('The cookie "reader" has "1" for value');
+      }
+
+      //ES2016
+      if (
+        document.cookie.split(';').some((item) => item.includes('reader=1'))
+      ) {
+        console.log('The cookie "reader" has "1" for value');
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

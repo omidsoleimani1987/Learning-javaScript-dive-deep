@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      // local storage :
+      // for example we have some user id which we want to send to the server with each request that we send and with some mechanism we validate it on server side app
+
+      const userId = 'u123';
+
+      // window.localStorage
+      localStorage.setItem('uid', userId);
+
+      // localStorage.setItem();
+      // localStorage.getItem();
+      // localStorage.removeItem();
+      // localStorage.clear();
+      // localStorage.key();
+      // localStorage.length;
+
+      const user = {
+        name: 'omid',
+        age: 33,
+        hobbies: ['coding', 'films']
+      }
+
+      localStorage.setItem('user1', JSON.stringify(user));
+
+      const localStorageUser = JSON.parse(localStorage.getItem('user1'));
+      console.log(localStorageUser); // output : {name: "omid", age: 33, hobbies: Array(2)}
+
+      // session storage:
+      // the same syntax
+
+      sessionStorage.setItem('user1', JSON.stringify(user));
+      const sessionStorageUser = JSON.parse(sessionStorage.getItem('user1'));
+      console.log(localStorageUser); // output : {name: "omid", age: 33, hobbies: Array(2)}
+
+      // sessionStorage.setItem();
+      // sessionStorage.getItem();
+      // sessionStorage.removeItem();
+      // sessionStorage.clear();
+      // sessionStorage.key();
+      // sessionStorage.length;
+    </script>
+    </script>
+  </head>
+  <body>
+    <button id="store-btn">STORE</button>
+    <button id="retrieve-btn">RETRIEVE</button>
+  </body>
+</html>
